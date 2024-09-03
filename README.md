@@ -76,6 +76,8 @@ Instalar el binario de [kind](https://kind.sigs.k8s.io/)
     kubectl get secrets -n indra
     ```
 
+NOTA: los archivos yaml se encuentra en demoPod/deployment
+
 ## Configmap
 
 1. Crear configmap [documentación](https://kubernetes.io/docs/concepts/configuration/configmap/)
