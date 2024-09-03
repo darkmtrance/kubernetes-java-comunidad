@@ -72,8 +72,25 @@ Instalar el binario de [kind](https://kind.sigs.k8s.io/)
     --from-literal=SPRING_DATASOURCE_PASSWORD=root
 
     kubectl -n indra create secret generic mysql-root-pass --from-literal=MYSQL_ROOT_PASSWORD=root
+
+    kubectl get secrets -n indra
     ```
 
+## Configmap
+
+1. Crear configmap [documentación](https://kubernetes.io/docs/concepts/configuration/configmap/)
+   ```sh
+    kubectl -n indra apply -f mysql-init-configmap.yaml
+    kubectl get cm -n indra
+    ```
+## Statefulset
+
+1. Crear statefulset [documentación](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+   ```sh
+    kubectl -n indra apply -f statefulset.yaml
+    kubectl get pod -n indra
+   ```
+       
 ## Deployments
 
 1. Crear deployment [documentación](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
@@ -82,10 +99,12 @@ Instalar el binario de [kind](https://kind.sigs.k8s.io/)
     kubectl get pods -n indra
     ```
 
+    
 ## Services
 
 1. Crear services [documentación](https://kubernetes.io/docs/concepts/services-networking/service/)
     ```sh
+    kubectl -n indra apply -f service-mysql.yaml
     kubectl -n indra apply -f service.yaml
     kubectl get services -n indra
     ```
